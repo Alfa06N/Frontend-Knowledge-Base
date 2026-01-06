@@ -41,7 +41,7 @@ npm test
 
 ## ✨ Contributing
 
-If you want to improve or add explanations, examples, or tests, open a pull request and briefly explain your change and how it helps learning.
+By Alfa06N, made with ❤️
 
 ---
 
