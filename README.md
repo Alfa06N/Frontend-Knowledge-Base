@@ -12,9 +12,19 @@ This repository is a learning notebook: it contains small projects and examples 
 
 ## 📁 Main structure
 
-- `01-Closure-Debounce/` — First exercise: a `debounce` example and related closure exercises.
-  - `Vanilla/` — Simple implementations in plain JavaScript (`debounce.js`, `counter.js`).
-  - `React-Practice/` — Small React app demonstrating `debounce` inside a component, with tests.
+- `01-Closure-Debounce/` — Exercise on closures and debounce.
+
+  - `Vanilla/` — simple implementations in plain JavaScript (`debounce.js`, `counter.js`).
+  - `React-Practice/` — React app demonstrating `debounce` inside a component, with tests.
+
+- `02-Maps-Cache/` — Exercise exploring `Map` usage and simple caching patterns.
+
+  - `src/cache.ts` — cache utilities and examples.
+  - `src/components/UserDirectory.tsx` — React example showing cache usage in a component.
+
+- `03-Sets-Maps/` — Exercise focusing on `Set` and `Map` with a multi-selection example.
+  - `toggleSelection.tsx` — helper to toggle selections using `Set`.
+  - `React-Practice/` — React multi-select component and tests.
 
 > Each exercise folder includes a `readme.md` explaining the exercise and how to run it.
 

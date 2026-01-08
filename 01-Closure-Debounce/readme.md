@@ -78,14 +78,35 @@ npm test
 ```js
 function debounce(fn, wait = 300) {
   let timeout;
-  return function (...args) {
-    clearTimeout(timeout);
+
+  const executed = function (...args) {
+    if (timeout) clearTimeout(timeout);
     timeout = setTimeout(() => fn.apply(this, args), wait);
   };
+
+  // Cancel / reset method: clears any pending invocation
+  executed.cancel = () => {
+    if (timeout) clearTimeout(timeout);
+    timeout = null;
+  };
+
+  return executed;
 }
 ```
 
-In React, the debounced function is usually created outside the render or using `useRef`/`useCallback` so it is not recreated on every render.
+**Cancelación / reset:** The debounced function now exposes a `cancel()` method that clears any pending invocation. This is useful when you want to prevent the callback from running (for example, when a component unmounts or when a new operation replaces the previous one).
+
+Example usage:
+
+```js
+const mySearch = debounce((text) => console.log("Searching:", text), 500);
+mySearch("a");
+mySearch("ab");
+// Cancel pending invocation:
+mySearch.cancel();
+```
+
+In React, call `cancel()` on cleanup to avoid calling the callback after unmounting (e.g., inside `useEffect` cleanup). Also consider creating the debounced function with `useRef` or `useCallback` so its identity is stable across renders.
 
 ---
 
