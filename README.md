@@ -23,8 +23,14 @@ This repository is a learning notebook: it contains small projects and examples 
   - `src/components/UserDirectory.tsx` — React example showing cache usage in a component.
 
 - `03-Sets-Maps/` — Exercise focusing on `Set` and `Map` with a multi-selection example.
+
   - `toggleSelection.tsx` — helper to toggle selections using `Set`.
   - `React-Practice/` — React multi-select component and tests.
+
+- `04-useReducer/` — Exercise demonstrating `useReducer` with debounce and caching.
+
+  - `src/components/AdvancedSearch.tsx` — input component with debounce, local cache (`Map`) and reducer-based state.
+  - `src/hooks/searchReducer.tsx` — reducer implementation and types.
 
 > Each exercise folder includes a `readme.md` explaining the exercise and how to run it.
 
