@@ -13,24 +13,26 @@ This repository is a learning notebook: it contains small projects and examples 
 ## 📁 Main structure
 
 - `01-Closure-Debounce/` — Exercise on closures and debounce.
-
   - `Vanilla/` — simple implementations in plain JavaScript (`debounce.js`, `counter.js`).
   - `React-Practice/` — React app demonstrating `debounce` inside a component, with tests.
 
 - `02-Maps-Cache/` — Exercise exploring `Map` usage and simple caching patterns.
-
   - `src/cache.ts` — cache utilities and examples.
   - `src/components/UserDirectory.tsx` — React example showing cache usage in a component.
 
 - `03-Sets-Maps/` — Exercise focusing on `Set` and `Map` with a multi-selection example.
-
   - `toggleSelection.tsx` — helper to toggle selections using `Set`.
   - `React-Practice/` — React multi-select component and tests.
 
 - `04-useReducer/` — Exercise demonstrating `useReducer` with debounce and caching.
-
   - `src/components/AdvancedSearch.tsx` — input component with debounce, local cache (`Map`) and reducer-based state.
   - `src/hooks/searchReducer.tsx` — reducer implementation and types.
+
+- `05-useAdvancedSearch/` — Advanced search hook and integration.
+  - `src/components/AdvancedSearch.tsx` — demo component showing how to use the hook.
+  - `src/hooks/useAdvancedSearch.ts` — reusable hook combining debounce, cache, and async lookup.
+  - `src/hooks/searchReducer.ts` — reducer and actions for search state.
+  - `src/utils/debounce.ts` — small debounce helper.
 
 > Each exercise folder includes a `readme.md` explaining the exercise and how to run it.
 
