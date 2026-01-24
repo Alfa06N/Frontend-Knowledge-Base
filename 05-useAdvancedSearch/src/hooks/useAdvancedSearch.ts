@@ -11,10 +11,17 @@ const initialState: SearchState = {
 export function useAdvancedSearch(delay: number = 500) {
   const [state, dispatch] = useReducer(searchReducer, initialState);
   const cache = useRef(new Map<string, string[]>());
+  const abortControllerRef = useRef<AbortController | null>(null);
 
   const performSearch = useCallback(async (query: string) => {
     if (!query) return;
-    console.log(cache);
+
+    if (abortControllerRef.current) {
+      abortControllerRef.current.abort();
+    }
+
+    abortControllerRef.current = new AbortController();
+    const signal = abortControllerRef.current.signal;
 
     if (cache.current.has(query)) {
       dispatch(actions.fetchSuccess(cache.current.get(query)!));
@@ -24,12 +31,27 @@ export function useAdvancedSearch(delay: number = 500) {
     dispatch(actions.fetchStart());
 
     try {
-      await new Promise((r) => setTimeout(r, 800));
-      const results = [`Result 1 for ${query}`, `Result 2 for ${query}`];
+      const response = await fetch("https://httpbin.org/delay/3", {
+        method: "GET",
+        signal,
+      });
 
-      cache.current.set(query, results);
-      dispatch(actions.fetchSuccess(results));
-    } catch (err) {
+      if (!response.ok) {
+        throw new Error("Network response was not ok");
+      }
+
+      const data = [
+        "Result 1 for " + query,
+        "Result 2 for " + query,
+        "Result 3 for " + query,
+      ];
+      cache.current.set(query, data);
+      dispatch(actions.fetchSuccess(data));
+    } catch (err: any) {
+      if (err.name === "AbortError") {
+        console.log("Fetch aborted");
+        return;
+      }
       dispatch(actions.fetchError("Failed to fetch results"));
     }
   }, []);

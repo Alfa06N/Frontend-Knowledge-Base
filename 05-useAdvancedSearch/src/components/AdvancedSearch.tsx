@@ -16,7 +16,7 @@ export default function AdvancedSearch() {
 
       <ul>
         {results.map((res) => (
-          <li key={res}>res</li>
+          <li key={res}>{res}</li>
         ))}
       </ul>
     </div>

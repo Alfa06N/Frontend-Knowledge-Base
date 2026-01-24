@@ -4,7 +4,7 @@ This exercise demonstrates an advanced search pattern in React using a custom ho
 
 ## Goals
 
-- Build a reusable `useAdvancedSearch` hook that handles input, debounced API (or fake) calls, caching, and reducer-driven state.
+- Build a reusable `useAdvancedSearch` hook that handles input, debounced API calls, caching, request cancellation, and reducer-driven state.
 - Keep examples simple and focused so you can reuse the hook in other apps.
 
 ## What’s included
@@ -18,6 +18,7 @@ This exercise demonstrates an advanced search pattern in React using a custom ho
 
 - The hook uses a `Map` to cache recent search results to avoid repeated requests.
 - Input is debounced to avoid calling the search function on every keystroke.
+- Previous requests are cancelled using AbortController to prevent race conditions and unnecessary network calls.
 - A reducer manages states like `loading`, `results`, and `error` so components remain simple.
 
 ## How to run
@@ -45,7 +46,7 @@ npm run dev
 
 ## Notes
 
-- The example uses a mocked/fake search function by default — replace it with a real API call where necessary.
+- The example uses a real HTTP fetch to a mock API (httpbin.org/delay/3) for demonstration — replace the URL with your actual API endpoint.
 - The hook is intentionally small and framework-agnostic — it can be adapted for different data sources.
 
 ---
