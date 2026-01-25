@@ -34,6 +34,12 @@ This repository is a learning notebook: it contains small projects and examples 
   - `src/hooks/searchReducer.ts` — reducer and actions for search state.
   - `src/utils/debounce.ts` — small debounce helper.
 
+- `06-React-Query/` — Exercise demonstrating TanStack React Query for data fetching and mutations.
+  - `src/components/advancedInput.tsx` — debounced search input for Rick and Morty characters.
+  - `src/components/Results.tsx` — displays search results using React Query.
+  - `src/components/AddCharacterForm.tsx` — form to add characters with optimistic updates.
+  - `src/hooks/useAddCharacter.ts` — custom hook for mutations with error handling.
+
 > Each exercise folder includes a `readme.md` explaining the exercise and how to run it.
 
 ## ▶️ How to use
