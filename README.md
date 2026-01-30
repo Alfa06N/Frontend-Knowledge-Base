@@ -39,6 +39,9 @@ This repository is a learning notebook: it contains small projects and examples 
   - `src/components/Results.tsx` — displays search results using React Query.
   - `src/components/AddCharacterForm.tsx` — form to add characters with optimistic updates.
   - `src/hooks/useAddCharacter.ts` — custom hook for mutations with error handling.
+  - `src/setupTests.ts` — Vitest + `@testing-library/jest-dom` test setup and MSW mock server registration.
+  - `src/custom.d.ts` — global TypeScript declarations for importing `*.css|*.scss|*.sass` files.
+  - `package.json` scripts include `dev` (Vite), `build`, `preview`, and `test` (Vitest). Use `npm run test` or `npx vitest run --coverage` for running tests and coverage.
 
 > Each exercise folder includes a `readme.md` explaining the exercise and how to run it.
 

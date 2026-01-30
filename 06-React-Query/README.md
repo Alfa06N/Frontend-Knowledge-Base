@@ -29,6 +29,8 @@ src/
 │   └── useAddCharacter.ts      # Custom hook for adding characters (mutation)
 ├── utils/
 │   └── debounce.ts             # Debounce utility (though not used in this version)
+├── setupTests.ts               # Vitest/Jest DOM + MSW test setup
+├── custom.d.ts                 # Global typings for importing CSS files in TS
 └── App.tsx                     # Main app component with QueryClient setup
 ```
 
@@ -47,6 +49,32 @@ src/
    ```
 
 3. Open your browser and navigate to `http://localhost:5173`.
+
+Testing
+
+- Run the unit tests with Vitest:
+
+  ```bash
+  npm run test
+  ```
+
+- Run tests with coverage:
+
+  ```bash
+  npx vitest run --coverage
+  ```
+
+- This project includes a test setup file at `src/setupTests.ts` which configures `@testing-library/jest-dom` and a mock server via MSW (`src/mocks`).
+
+TypeScript + CSS imports
+
+- If you see an error like "Cannot find module './App.css' or its corresponding type declarations", this repository includes a global declaration file `src/custom.d.ts` that declares `*.css`, `*.scss`, and `*.sass` modules so TypeScript will accept style imports. If you remove that file, recreate it with:
+
+  ```ts
+  declare module "*.css";
+  declare module "*.scss";
+  declare module "*.sass";
+  ```
 
 ## 📖 Key Concepts Demonstrated
 
